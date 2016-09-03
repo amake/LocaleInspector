@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C401F5F41D79B2B7002D21DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401F5F31D79B2B7002D21DD /* AppDelegate.swift */; };
-		C401F5F61D79B2B7002D21DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401F5F51D79B2B7002D21DD /* ViewController.swift */; };
 		C401F5F91D79B2B7002D21DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C401F5F71D79B2B7002D21DD /* Main.storyboard */; };
 		C401F5FB1D79B2B7002D21DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C401F5FA1D79B2B7002D21DD /* Assets.xcassets */; };
 		C401F5FE1D79B2B7002D21DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C401F5FC1D79B2B7002D21DD /* LaunchScreen.storyboard */; };
+		C48290181D7B02990001A15F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48290171D7B02990001A15F /* TabBarController.swift */; };
+		C482901A1D7B04420001A15F /* UserLocalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48290191D7B04420001A15F /* UserLocalesTableViewController.swift */; };
+		C482901C1D7B05A50001A15F /* SystemLocalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C482901B1D7B05A50001A15F /* SystemLocalesTableViewController.swift */; };
+		C4D99A101D7B231D003C7821 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D99A0F1D7B231D003C7821 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C401F5F01D79B2B7002D21DD /* LocaleInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocaleInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C401F5F31D79B2B7002D21DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C401F5F51D79B2B7002D21DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C401F5F81D79B2B7002D21DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C401F5FA1D79B2B7002D21DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C401F5FD1D79B2B7002D21DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C401F5FF1D79B2B7002D21DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C48290171D7B02990001A15F /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C48290191D7B04420001A15F /* UserLocalesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocalesTableViewController.swift; sourceTree = "<group>"; };
+		C482901B1D7B05A50001A15F /* SystemLocalesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLocalesTableViewController.swift; sourceTree = "<group>"; };
+		C4D99A0F1D7B231D003C7821 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				C401F5F31D79B2B7002D21DD /* AppDelegate.swift */,
-				C401F5F51D79B2B7002D21DD /* ViewController.swift */,
+				C48290171D7B02990001A15F /* TabBarController.swift */,
 				C401F5F71D79B2B7002D21DD /* Main.storyboard */,
 				C401F5FA1D79B2B7002D21DD /* Assets.xcassets */,
 				C401F5FC1D79B2B7002D21DD /* LaunchScreen.storyboard */,
 				C401F5FF1D79B2B7002D21DD /* Info.plist */,
+				C48290191D7B04420001A15F /* UserLocalesTableViewController.swift */,
+				C482901B1D7B05A50001A15F /* SystemLocalesTableViewController.swift */,
+				C4D99A0F1D7B231D003C7821 /* Util.swift */,
 			);
 			path = LocaleInspector;
 			sourceTree = "<group>";
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C401F5F61D79B2B7002D21DD /* ViewController.swift in Sources */,
+				C482901C1D7B05A50001A15F /* SystemLocalesTableViewController.swift in Sources */,
+				C48290181D7B02990001A15F /* TabBarController.swift in Sources */,
+				C4D99A101D7B231D003C7821 /* Util.swift in Sources */,
 				C401F5F41D79B2B7002D21DD /* AppDelegate.swift in Sources */,
+				C482901A1D7B04420001A15F /* UserLocalesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,7 @@
 				C401F6041D79B2B7002D21DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
