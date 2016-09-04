@@ -12,9 +12,7 @@ class SystemLocalesViewController: UIViewController {
     
     var categories: [String] = []
     var alphabetized: [String:[String]] = [:]
-    
-    @IBOutlet var table: UITableView!
-    
+
     func makeAlphabetizedMap() -> [String:[String]] {
         // Implementing this with reduce() crashes the Swift compiler :(
         var m: [String:[String]] = [:]
@@ -36,7 +34,12 @@ class SystemLocalesViewController: UIViewController {
         alphabetized = makeAlphabetizedMap()
         categories = alphabetized.keys.sorted()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let target = segue.destination as! LocaleDetailViewController
+        let cell = sender as! SystemLocaleTableCell
+        target.locale = Locale(identifier: cell.locale!)
+    }
 }
 
 extension SystemLocalesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -49,7 +52,9 @@ extension SystemLocalesViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as! SystemLocaleTableCell
         let section = categories[indexPath.section]
         let code = (alphabetized[section]?[indexPath.item])!
-        cell.label.text = "\(code) - \(code.localizedStringAsIdentifier()!)"
+        cell.locale = code
+        cell.textLabel?.text = code
+        cell.detailTextLabel?.text = code.localizedStringAsIdentifier()
         return cell
     }
     
@@ -72,5 +77,5 @@ extension SystemLocalesViewController: UITableViewDataSource, UITableViewDelegat
 }
 
 class SystemLocaleTableCell: UITableViewCell {
-    @IBOutlet var label: UILabel!
+    var locale: String?
 }

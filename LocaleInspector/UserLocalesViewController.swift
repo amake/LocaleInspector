@@ -10,6 +10,11 @@ import UIKit
 
 class UserLocalesViewController: UIViewController {
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let target = segue.destination as! LocaleDetailViewController
+        let cell = sender as! UserLocaleTableCell
+        target.locale = Locale(identifier: cell.locale!)
+    }
 }
 
 extension UserLocalesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -26,7 +31,9 @@ extension UserLocalesViewController: UITableViewDataSource, UITableViewDelegate 
         } else {
             loc = Locale.preferredLanguages[indexPath.item]
         }
-        cell.label.text = "\(loc!) - \(loc!.localizedStringAsIdentifier()!)"
+        cell.locale = loc
+        cell.textLabel?.text = loc
+        cell.detailTextLabel?.text = loc?.localizedStringAsIdentifier()
         return cell
     }
     
@@ -40,5 +47,5 @@ extension UserLocalesViewController: UITableViewDataSource, UITableViewDelegate 
 }
 
 class UserLocaleTableCell: UITableViewCell {
-    @IBOutlet var label: UILabel!
+    var locale: String?
 }

@@ -15,6 +15,7 @@
 		C482901A1D7B04420001A15F /* UserLocalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48290191D7B04420001A15F /* UserLocalesViewController.swift */; };
 		C482901C1D7B05A50001A15F /* SystemLocalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C482901B1D7B05A50001A15F /* SystemLocalesViewController.swift */; };
 		C4D99A101D7B231D003C7821 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D99A0F1D7B231D003C7821 /* Util.swift */; };
+		C4D99A121D7BDDD7003C7821 /* LocaleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D99A111D7BDDD7003C7821 /* LocaleDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C48290191D7B04420001A15F /* UserLocalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocalesViewController.swift; sourceTree = "<group>"; };
 		C482901B1D7B05A50001A15F /* SystemLocalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLocalesViewController.swift; sourceTree = "<group>"; };
 		C4D99A0F1D7B231D003C7821 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C4D99A111D7BDDD7003C7821 /* LocaleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocaleDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C48290191D7B04420001A15F /* UserLocalesViewController.swift */,
 				C482901B1D7B05A50001A15F /* SystemLocalesViewController.swift */,
 				C4D99A0F1D7B231D003C7821 /* Util.swift */,
+				C4D99A111D7BDDD7003C7821 /* LocaleDetailViewController.swift */,
 			);
 			path = LocaleInspector;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D99A121D7BDDD7003C7821 /* LocaleDetailViewController.swift in Sources */,
 				C482901C1D7B05A50001A15F /* SystemLocalesViewController.swift in Sources */,
 				C48290181D7B02990001A15F /* TabBarController.swift in Sources */,
 				C4D99A101D7B231D003C7821 /* Util.swift in Sources */,
