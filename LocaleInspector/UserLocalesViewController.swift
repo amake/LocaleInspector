@@ -8,13 +8,17 @@
 
 import UIKit
 
-class UserLocalesTableViewController: UITableViewController {
+class UserLocalesViewController: UIViewController {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+}
+
+extension UserLocalesViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as! UserLocaleTableCell
         let loc: String?
         if (indexPath.section == 0) {
@@ -26,11 +30,11 @@ class UserLocalesTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 1 : Locale.preferredLanguages.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0 ? "Current Locale" : "Preferred Languages"
     }
 }

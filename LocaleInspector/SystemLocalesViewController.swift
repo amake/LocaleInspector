@@ -8,10 +8,12 @@
 
 import UIKit
 
-class SystemLocalesTableViewController: UITableViewController {
+class SystemLocalesViewController: UIViewController {
     
     var categories: [String] = []
     var alphabetized: [String:[String]] = [:]
+    
+    @IBOutlet var table: UITableView!
     
     func makeAlphabetizedMap() -> [String:[String]] {
         // Implementing this with reduce() crashes the Swift compiler :(
@@ -33,14 +35,17 @@ class SystemLocalesTableViewController: UITableViewController {
     override func viewDidLoad() {
         alphabetized = makeAlphabetizedMap()
         categories = alphabetized.keys.sorted()
-        tableView.contentInset.top = UIApplication.shared.statusBarFrame.height
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+}
+
+extension SystemLocalesViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
         return categories.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as! SystemLocaleTableCell
         let section = categories[indexPath.section]
         let code = (alphabetized[section]?[indexPath.item])!
@@ -48,20 +53,20 @@ class SystemLocalesTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sec = categories[section]
         return alphabetized[sec]!.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return categories[section].uppercased()
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return categories.map { $0.uppercased() }
     }
     
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
     }
 }
