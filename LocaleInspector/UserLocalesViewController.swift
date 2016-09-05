@@ -15,34 +15,64 @@ class UserLocalesViewController: UIViewController {
         let cell = sender as! UserLocaleTableCell
         target.locale = Locale(identifier: cell.locale!)
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let cell = sender as! UserLocaleTableCell
+        return cell.locale != nil
+    }
 }
 
 extension UserLocalesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as! UserLocaleTableCell
-        let loc: String?
-        if (indexPath.section == 0) {
-            loc = Locale.current.identifier
+        var loc, text, detail: String?
+        if indexPath.section == 0 {
+            text = UIDevice.current.systemVersion
+            detail = ""
         } else {
-            loc = Locale.preferredLanguages[indexPath.item]
+            if indexPath.section == 1 {
+                loc = Locale.current.identifier
+            } else {
+                loc = Locale.preferredLanguages[indexPath.item]
+            }
+            text = loc
+            detail = loc?.localizedStringAsIdentifier()
         }
         cell.locale = loc
-        cell.textLabel?.text = loc
-        cell.detailTextLabel?.text = loc?.localizedStringAsIdentifier()
+        cell.textLabel?.text = text
+        cell.detailTextLabel?.text = detail
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : Locale.preferredLanguages.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        case 2:
+            return Locale.preferredLanguages.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Current Locale" : "Preferred Languages"
+        switch section {
+        case 0:
+            return "OS Version"
+        case 1:
+            return "Current Locale"
+        case 2:
+            return "Preferred Languages"
+        default:
+            return nil
+        }
     }
 }
 
